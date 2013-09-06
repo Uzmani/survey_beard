@@ -1,10 +1,10 @@
 helpers do
 
   def login
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by_email(params[:email])
     if @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect "/"
+      redirect "/users/#{current_user.id}"
     else
       erb :auth_errors
     end

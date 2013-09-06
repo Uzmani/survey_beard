@@ -1,15 +1,17 @@
 # stuff for creating a user
 
-get "/login" do
-  erb :user_signup
-end
+# get "/login" do
+#   erb :user_signup
+# end
 
-post "/users" do
+post "/users/new" do
   signup
+  erb :index
 end
 
-get "/user/:user_id" do
+get "/users/:user_id" do
   @user = User.find(params[:user_id])
-  erb :user_profile
+  @survey = Survey.all
+  erb :dashboard
 end
 

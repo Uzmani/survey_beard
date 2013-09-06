@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :surveys
+  has_many :answers
+  has_many :choices, through: :answers #do we need this?
+  has_many :completions
+
  
   include BCrypt
 
@@ -14,3 +18,19 @@ class User < ActiveRecord::Base
 
 
 end
+
+
+# alex = User.first
+# alex.choices => [choice object 1, choice object 2...]
+#   but the choices dont map to alex in a meaningful way.. 
+#   they represent the choices that alex had available to him/her,
+#   but not the choice that he/she actually made.... 
+
+
+# user.completions => [completion object 1, completion object 2...]
+# each completion object maps to this user (check)
+# each completion object maps to a survey (ok)
+#   so => this method gives you the surveys a user has completed.
+
+# user.completions.map {|completion| completion.survey}
+#   => gives you the surveys that this particular user completed.
