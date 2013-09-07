@@ -7,6 +7,4 @@ User.first.surveys.first.questions.first.choices << Choice.create(reply: 'short'
 User.first.surveys.first.questions.first.choices << Choice.create(reply: 'medium')
 User.first.surveys.first.questions.first.choices << Choice.create(reply: 'burly')
 
-#create associations
-
 
