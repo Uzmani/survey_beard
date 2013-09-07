@@ -8,3 +8,5 @@ george_post.comments.create(user: thomas, text: "i'm thomas")
 thomas_post = thomas.posts.create(title: "Thomas' Post", url: "www.facebook.com")
 thomas_post.comments.create(user: george, text: "i'm george")
 thomas_post.comments.create(user: thomas, text: "i'm thomas")
+
+#test
