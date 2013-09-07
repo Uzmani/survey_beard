@@ -32,5 +32,10 @@ post '/surveys/:survey_id' do
     current_user.answers << answer
   end
 
-  redirect "/users/#{current_user.id}"
+  redirect "/surveys/#{survey.id}/results"
+end
+
+get '/surveys/:survey_id/results' do
+
+  erb :results
 end
