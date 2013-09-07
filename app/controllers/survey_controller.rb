@@ -36,6 +36,7 @@ post '/surveys/:survey_id' do
 end
 
 get '/surveys/:survey_id/results' do
+  @survey = Survey.find(params[:survey_id])
 
   erb :results
 end
