@@ -1,13 +1,12 @@
 get '/surveys/new' do 
   #AR create new survey
-
+  puts "wrong route executed"
   erb :new_survey
 end
 
 post '/surveys/new' do
-  # if survey wasn't successfully, render message
-
-
+  # if survey wasn't successfully created, render message
+  p params
   redirect "/users/#{current_user.id}"
 end
 
@@ -38,4 +37,16 @@ end
 get '/surveys/:survey_id/results' do
 
   erb :results
+end
+
+get '/surveys/new/choices/new' do
+  @choice_value = params[:choice_value]
+  @question_value = params[:question_value]
+erb :_add_choice , :layout => false
+end
+
+get '/surveys/new/questions/new' do
+  @choice_value = params[:choice_value]
+  @question_value = params[:question_value]
+  erb :_add_question , :layout => false
 end

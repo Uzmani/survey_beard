@@ -1,0 +1,35 @@
+<h2>Create your new Survey about beards here</h2>
+
+<div class="container">
+  <form class="new-survey" action="/surveys/new" method="post">
+    <span>Survey Name: <input type="text" name="title" placeholder="Name of Survey" autofocus></span><br><br>
+   <div class="question">
+    <span>Question: <input type="text" name="question1" placeholder="Enter question here"></span><br>
+  </div>
+  <div class="choice">
+    <span>Choice: <input type="text" name="q1choice1" placeholder="Choice"></span><br>
+  </div>
+  <div class="choice">
+    <span>Choice: <input type="text" name="q1choice2" placeholder="Choice"></span><br>
+  </div>
+
+
+    <div class="add-survey-content"></div>
+    
+
+    
+  
+  <br>
+</div>
+  
+<div><input type="submit" value="Done"></div>
+  <input id="choice-counter" type="hidden" value="2">
+</form>
+
+<form class="add-choice" action="/surveys/new/choices/new" method="get">
+  <input class="btn-add-choice" type='submit' value='Add Choice'>
+</form>
+
+<form class="add-question" action="/surveys/new/questions/new" method="get">
+  <input class="btn-next-question" type='submit' value='Add New Question' >
+</form>
