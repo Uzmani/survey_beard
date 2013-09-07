@@ -1,7 +1,14 @@
 <h1>List of Surveys</h1>
 
+<form action="/surveys/new" method="get">
+  <input type="text" name="survey_title">
+  <input type="submit" value="Create a new Survey">
+</form>
+
 <% @survey.each do |survey| %>
 
   <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+
+
 
   <% end %>
