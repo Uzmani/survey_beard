@@ -4,13 +4,13 @@
   <form class="new-survey" action="/surveys/new" method="post">
     <span>Survey Name: <input type="text" name="title" placeholder="Name of Survey" autofocus></span><br><br>
    <div class="question">
-    <span>Question: <input type="text" name="question1" placeholder="Enter question here"></span><br>
+    <span>Question: <input type="text" name="question[1][:content]" placeholder="Enter question here"></span><br>
   </div>
   <div class="choice">
-    <span>Choice: <input type="text" name="q1choice1" placeholder="Choice"></span><br>
+    <span>Choice: <input type="text" name="question[1][:reply][:1]" placeholder="Choice"></span><br>
   </div>
   <div class="choice">
-    <span>Choice: <input type="text" name="q1choice2" placeholder="Choice"></span><br>
+    <span>Choice: <input type="text" name="question[1][:reply][:2]" placeholder="Choice"></span><br>
   </div>
 
 
@@ -20,10 +20,10 @@
     
   
   <br>
-</div>
+  </div>
   
-<div><input type="submit" value="Done"></div>
-  <input id="choice-counter" type="hidden" value="2">
+  <div><input type="submit" value="Done"></div>
+<!--   <input id="choice-counter" type="hidden" value="2">-->
 </form>
 
 <form class="add-choice" action="/surveys/new/choices/new" method="get">

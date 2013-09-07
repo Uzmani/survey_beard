@@ -6,7 +6,39 @@ end
 
 post '/surveys/new' do
   # if survey wasn't successfully created, render message
-  p params
+  puts "new survey params here--------------------------------------"
+  @new_survey = Survey.create(title: params[:title])
+  current_user.surveys << @new_survey 
+  p params[:question]
+  # p params[:question]
+  # p params[:choice][0]
+  
+    params[:question].each_value do |question_data|
+      @question = Question.new(content: question_data[":content"])
+        question_data[":reply"].each_value do |reply|
+          @choice = Choice.new(reply: reply)
+          @question.choices << @choice
+        end
+        @new_survey.questions << @question
+    end
+
+    # params[:question].each do |key, content_hash|
+    #   content_hash.each do |content, string|
+    #     @new_question = Question.create(content: string)
+    #     @new_survey.questions << @new_question
+    #   end  
+    #   params[:choice].each do |choice_hash|
+    #     choice_hash. each do |reply, string|
+    #       @new_choice = Choice.create(reply: string)
+    #       @new_question.choices << @new_choice
+    #     end
+    #   end
+    # end
+  puts "=====================showing questions in survey"
+  p @new_survey.questions
+  puts "=====================new question object"
+  p @new_question
+  # current_user.surveys
   redirect "/users/#{current_user.id}"
 end
 
@@ -22,6 +54,8 @@ post '/surveys/:survey_id' do
   #an answer object, and shovel that answer into the appropriate
   #choices.answers array, and into the appropriate user.answers
   #array
+
+
   survey = Survey.find(params[:survey_id])
   survey.questions.each_with_index do |question, index|
     answer = Answer.new

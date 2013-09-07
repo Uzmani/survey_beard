@@ -1,9 +1,11 @@
 <div class="question">
-  <span>Question: <input id="choice-counter" type="text" name="question<%=@question_value%>"></span><br>
+  <span>Question: <input id="choice-counter" type="text" name="question[<%=@question_value%>][:content]"></span><br>
 </div>
   <div class="choice">
-    <span>Choice: <input type="text" name="q<%=@question_value%>choice1" placeholder="Choice"></span><br>
+    <span>Choice: <input type="text" name="question[<%=@question_value%>][:reply][:1]" placeholder="Choice"></span><br>
  </div>
  <div class="choice">
-   <span>Choice: <input type="text" name="q<%=@question_value%>choice2" placeholder="Choice"></span><br>
+
+
+   <span>Choice: <input type="text" name="question[<%=@question_value%>][:reply][:2]" placeholder="Choice"></span><br>
  </div>
