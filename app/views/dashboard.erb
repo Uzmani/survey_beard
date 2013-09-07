@@ -1,14 +1,27 @@
-<h1>List of Surveys</h1>
+<h1>Beardboard</h1>
+<div class="dash-container">
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Surveys You've Created</h2>
+      <form action="/surveys/new" method="get">
+        <input type="submit" value="Create a new Survey">
+      </form>
 
-<form action="/surveys/new" method="get">
-  <input type="text" name="survey_title">
-  <input type="submit" value="Create a new Survey">
-</form>
+      
+    </div>
+    <div class="col-sm-4">
+      <h2>Take A Beard Survey</h2>
+      <% @survey.each do |survey| %>
+        <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+      <% end %>
+    </div>
+    
+    <div class="col-sm-4">
+      <h2>Stats on Surveys You've Taken</h2>
+    </div>
+  </div>
+</div>
 
-<% @survey.each do |survey| %>
-
-  <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
 
 
-
-  <% end %>

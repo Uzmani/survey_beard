@@ -11,3 +11,19 @@ th {
 nav li {
   display: inline;
 }
+
+.col-sm-4 {
+  width: 27%;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  background-color: orange;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.dash-container {
+  margin: 20px auto;
+  width: 95%;
+
+}
