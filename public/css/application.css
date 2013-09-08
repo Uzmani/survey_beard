@@ -101,6 +101,15 @@ div.container input.btn{
 
 }
 
+#results {
+  background-color: orange;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #453C4D;
+  border: solid 1px #453C4D;
+  width: 475px;
+}
+
 div.choice input{
   border-radius: 10px;
   box-shadow: 3px 3px 5px #B24700;
@@ -117,6 +126,7 @@ div.question input{
   background-color: orange;
 }
 
+
 #untaken_surveys input.form-control{
   width: 150px;
   box-shadow: 5px 5px 5px #B24700;
@@ -127,14 +137,7 @@ div.question input{
   bottom: auto;
 }
 
-/*#survey_field{
 
-  background-color: orange;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #453C4D;
-  border: solid 1px #453C4D;
-  width: 400px;
-  height: auto;
-
-}*/
+#graph {
+  border-radius: 12px;
+}

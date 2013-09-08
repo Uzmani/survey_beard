@@ -17,6 +17,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'googlecharts'
+gem 'faker'
 
 group :test do
   gem 'faker'

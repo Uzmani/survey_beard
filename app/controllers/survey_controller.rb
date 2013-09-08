@@ -25,10 +25,12 @@ end
 get '/surveys/:survey_id/results' do
   @survey = Survey.find(params[:survey_id])
   extract_graph_data(@survey)
-  @chart = Gchart.pie_3d(:data => @graph_data, :title => "#{@survey.title}", :size => '365x200', :labels => @graph_labels)
-  p @graph_data
-  p @graph_labels
-
+  @chart = Gchart.pie_3d(:data => @graph_data, 
+                         :title => "#{@survey.title}", 
+                         :size => '430x200', 
+                         :bg => '0000FF00',
+                         :theme => :keynote,
+                         :labels => @graph_labels)
   erb :results
 end
 
