@@ -9,8 +9,9 @@ helpers do
   end
 
   def signup
-    user = User.new(email: params[:email], password: params[:password])
-    if user.save
+    @user = User.new(email: params[:email], password: params[:password], name: params[:name])
+    if @user.save
+      login
       redirect "/users/#{user.id}"
     else
       "Deal with errors..."

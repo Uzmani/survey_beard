@@ -1,14 +1,18 @@
-<nav>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <ul>
-    <li><a href="/">Home</a></li>
+    
     
     <% if logged_in? %>
-      <li><a href="/user/<%= current_user.id %>">Profile</a></li>    
-      <li><a href="/logout">Logout</a></li>
-    <% else %>
+    <p class="navbar-text">Hello <%= current_user.name %>, your beard is looking lovely today!</p>
+    <li><a class="navbar-text" href="/">Dashbeard</a></li>
+    <a href="/surveys/new">
+      <button id="create_survey_button" type="button" class="btn btn-default navbar-btn">Create a Survey</button>
+    </a>
+    <a href="/logout">
+      <button id="logout" type="button" class="btn btn-default navbar-btn">Sign out</button></a>
+      <% else %>
       <li><a href="/login">Log In</a></li>
-    <% end %>
-
-  </ul>
-</nav>
+      <% end %>
+    </ul>
+  </nav>
 

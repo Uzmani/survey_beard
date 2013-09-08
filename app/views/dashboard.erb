@@ -4,24 +4,26 @@
   <div class="row">
     <div class="col-sm-4">
       <h2>Surveys You've Created</h2>
-      <form action="/surveys/new" method="get">
-        <input type="submit" value="Create a new Survey">
-      </form>
-      <% surveys_created_by_this_user.each do |survey| %>
-        <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+      <% if surveys_created_by_this_user%>
+        <% surveys_created_by_this_user.each do |survey| %>
+          <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+        <% end %>
       <% end %>
 
       
     </div>
     <div class="col-sm-4">
       <h2>Take A Beard Survey</h2>
-      <% @survey.each do |survey| %>
+      <% surveys_not_taken.each do |survey| %>
         <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
       <% end %>
     </div>
     
     <div class="col-sm-4">
       <h2>Surveys You've Taken</h2>
+      <% surveys_taken_by_user.each do |survey| %>
+        <p><a href="/surveys/<%= survey.id %>/results"><%= survey.title %></a></p>
+      <% end %>
     </div>
   </div>
 </div>

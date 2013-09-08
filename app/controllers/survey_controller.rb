@@ -65,6 +65,10 @@ post '/surveys/:survey_id' do
     current_user.answers << answer
   end
 
+  completed = Completion.new
+  current_user.completions << completed
+  survey.completions << completed
+
   redirect "/surveys/#{survey.id}/results"
 end
 
