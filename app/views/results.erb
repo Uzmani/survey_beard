@@ -1,15 +1,15 @@
-<div class="container">
-<h2><%= @survey.title %> Results</h2>
+<div id="results" class="container">
+<h3><%= @survey.title %> Results</h3>
 
 <% @survey.questions.each do |question| %>
-	<p><%= question.content %></p>
-	<p><% question.choices.each do |choice| %></p>
-	<p><%= choice.reply %> <%= choice.answers.length %></p>
+	<h4><%= question.content %></h4>
+	<% question.choices.each do |choice| %>
+	<h5><%= choice.reply %>: <%= choice.answers.length %> votes</h5>
 
 	<% end %>
 	<% end %>
 
 
-<p><img src="<%=@chart%>"></p>
+<p><img id="graph" src="<%=@chart%>"></p>
 
 </div>
