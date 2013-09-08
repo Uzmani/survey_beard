@@ -59,6 +59,15 @@ helpers do
     @question_value = params[:question_value]
   end
 
+  def extract_graph_data(survey)
+    @graph_labels = []
+    @graph_data = []
+    survey.questions.first.choices.each do |choice|
+      @graph_labels << choice.reply
+      @graph_data <<  choice.answers.length
+    end
+  end
+
 
 end
 
