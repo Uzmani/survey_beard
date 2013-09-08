@@ -27,8 +27,13 @@ nav li {
 .dash-container {
   margin: 20px auto;
   width: 95%;
-
 }
+
+
+#new-survey-title {
+  margin: 0 auto;
+}
+
 body { 
   padding-top: 40px; 
   background-color: #62566E;
@@ -70,7 +75,7 @@ nav input#login{
   margin: 20px;
 }
 
-div#index div.container {
+ div.container {
   background-color: orange;
   border: none;
   border-radius: 10px;
@@ -97,9 +102,16 @@ div.container input.btn{
 
 }
 
+div.choice input{
+  border-radius: 10px;
+}
 
 
 
 
 
+
+.create-container {
+  background-color: orange;
+}
 
