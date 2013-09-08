@@ -92,7 +92,6 @@ div#index div.container form{
 div.container input#signup{
   width: 220px;
   box-shadow: 5px 5px 5px #B24700;
-  box-shadow: 5px 5px 5px #B24700;
   border: solid 1px #B24700;
 }
 
@@ -104,8 +103,15 @@ div.container input.btn{
 
 div.choice input{
   border-radius: 10px;
+  box-shadow: 3px 3px 5px #B24700;
+  border: solid 1px #B24700;
 }
 
+div.question input{
+
+  box-shadow: 5px 5px 5px #B24700;
+  border: solid 1px #B24700;
+}
 
 
 

@@ -31,12 +31,10 @@ $(document).ready(function() {
     });
   });
   $('#survey-name-modal').on('click', function(){
-    console.log("proceed button clicked");
+    $('div#show-modal-btn').hide();
     var surveyName = $('input').val();
-    console.log($('input').val());
-    $(".new-survey-title h3").append(surveyName);
     $("#hidden-survey-title").val(surveyName);
-    console.log($("#hidden-survey-title").val());
+    $(".new-survey-title h3").append(surveyName);
 
   });
 
