@@ -122,10 +122,21 @@ div.question input{
   border: solid 1px #B24700;
 }
 
-
 .create-container {
   background-color: orange;
 }
+
+
+#untaken_surveys input.form-control{
+  width: 150px;
+  box-shadow: 5px 5px 5px #B24700;
+  border: solid 1px #B24700;
+}
+
+#middle{
+  bottom: auto;
+}
+
 
 #graph {
   border-radius: 12px;
