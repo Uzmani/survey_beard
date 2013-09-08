@@ -6,3 +6,7 @@ get '/' do
   end
 end
 
+get '/test' do
+	erb :test
+end
+
