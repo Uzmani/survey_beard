@@ -133,8 +133,13 @@ div.question input{
   border: solid 1px #B24700;
 }
 
-#middle{
-  bottom: auto;
+#take_survey{
+  height: auto;
+}
+
+.take_survey .submit{
+  width: 140px;
+  border-radius: 10px;
 }
 
 

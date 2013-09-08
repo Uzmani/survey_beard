@@ -12,14 +12,14 @@
 
       
     </div>
-    <div id="middle" class="col-sm-4">
+    <div id="untaken_surveys" class="col-sm-4">
       <h2>Surveys You Can Taken</h2>
-      <div id="survey_field"></div>
-      <div id="untaken_surveys">
       <% surveys_not_taken.each do |survey| %>
         <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
       <% end %>
     </div>
+
+    <div id="take_survey" class="col-sm-4 hidden">
     </div>
     
     <div class="col-sm-4">
