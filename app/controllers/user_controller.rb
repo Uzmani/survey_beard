@@ -10,8 +10,6 @@ post "/users/new" do
 end
 
 get "/users/:user_id" do
-  @user = User.find(params[:user_id])
-  @survey = Survey.all
   erb :dashboard
 end
 

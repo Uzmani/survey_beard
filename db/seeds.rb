@@ -1,10 +1,10 @@
-thomas = User.create(username: "thomas", password: "thomas")
-george = User.create(username: "george", password: "george")
 
-george_post = george.posts.create(title: "George's Post", url: "www.google.com")
-george_post.comments.create(user: george, text: "i'm george")
-george_post.comments.create(user: thomas, text: "i'm thomas")
+User.create(name: 'Doktor', email: 'dgurson@gmail.com', password: '123')
+User.first.surveys << Survey.create(title: 'Beardiness')
 
-thomas_post = thomas.posts.create(title: "Thomas' Post", url: "www.facebook.com")
-thomas_post.comments.create(user: george, text: "i'm george")
-thomas_post.comments.create(user: thomas, text: "i'm thomas")
+User.first.surveys.first.questions << Question.create(content: 'What is your preferred length?')
+User.first.surveys.first.questions.first.choices << Choice.create(reply: 'short')
+User.first.surveys.first.questions.first.choices << Choice.create(reply: 'medium')
+User.first.surveys.first.questions.first.choices << Choice.create(reply: 'burly')
+
+

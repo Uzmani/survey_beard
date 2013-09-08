@@ -1,7 +1,32 @@
-<h1>List of Surveys</h1>
+<h1>Beardboard</h1>
+<div class="dash-container">
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Surveys You've Created</h2>
+      <% if surveys_created_by_this_user%>
+        <% surveys_created_by_this_user.each do |survey| %>
+          <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+        <% end %>
+      <% end %>
 
-<% @survey.each do |survey| %>
+      
+    </div>
+    <div class="col-sm-4">
+      <h2>Take A Beard Survey</h2>
+      <% surveys_not_taken.each do |survey| %>
+        <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+      <% end %>
+    </div>
+    
+    <div class="col-sm-4">
+      <h2>Surveys You've Taken</h2>
+      <% surveys_taken_by_user.each do |survey| %>
+        <p><a href="/surveys/<%= survey.id %>/results"><%= survey.title %></a></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
 
-  <% end %>
+
