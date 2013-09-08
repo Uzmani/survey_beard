@@ -1,18 +1,37 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <ul>
-    
-    
+
+
     <% if logged_in? %>
+
     <p class="navbar-text">Hello <%= current_user.name %>, your beard is looking lovely today!</p>
     <li><a class="navbar-text" href="/">Dashbeard</a></li>
-    <a href="/surveys/new">
-      <button id="create_survey_button" type="button" class="btn btn-default navbar-btn">Create a Survey</button>
-    </a>
-    <a href="/logout">
-      <button id="logout" type="button" class="btn btn-default navbar-btn">Sign out</button></a>
-      <% else %>
-      <li><a href="/login">Log In</a></li>
+    <span class="nav_buttons">
+
+      <% unless @new_survey %>
+
+      <a href="/surveys/new">
+        <button id="create_survey_button" type="button" class="btn btn-default navbar-btn">Create a Survey</button>
+      </a>
+
       <% end %>
+
+      <a href="/logout">
+        <button id="logout" type="button" class="btn btn-default navbar-btn">Sign out</button></a>
+      </span>
+
+      <% else %>
+
+      <span class="nav_buttons">
+        <form id="login" class="navbar-form navbar-right" action="/login" method="POST">
+            <input class="form-control" type="text" name="email" placeholder="email" autofocus>
+            <input class="form-control" type="password" name="password" placeholder="password">
+          <input id="login" class="btn btn-default navbar-btn" type="submit" value="login">
+        </form>
+      </span>
+
+      <% end %>
+
     </ul>
   </nav>
 

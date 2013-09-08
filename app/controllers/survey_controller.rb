@@ -1,6 +1,6 @@
 get '/surveys/new' do 
   #AR create new survey
-  puts "wrong route executed"
+  @new_survey = true
   erb :new_survey
 end
 

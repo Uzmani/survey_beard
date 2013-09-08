@@ -20,6 +20,8 @@ nav li {
   background-color: orange;
   height: 600px;
   border-radius: 10px;
+  box-shadow: 10px 10px 5px #453C4D;
+  border: solid 1px #453C4D;
 }
 
 .dash-container {
@@ -28,23 +30,76 @@ nav li {
 
 }
 body { 
-  padding-top: 50px; 
+  padding-top: 40px; 
   background-color: #62566E;
 
 }
 
-nav #logout{
-  float: right;
-  margin-left: 50px;
-  margin-right: 30px;
-}
-
 nav a{
-  margin-left: 200px;
+  margin-left: 30px;
 }
 
-nav #create_survey_button {
-  float: right;
-  margin-right: 90px;
+
+nav {
+  box-shadow: 0 7px 5px #453C4D;
+}
+
+nav span.nav_buttons{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 30px;
 
 }
+
+nav span.nav_buttons input{
+  margin-left: 20px;
+  width: 180px;
+}
+
+nav form#login{
+  margin-top: 0;
+}
+
+
+nav input#login{
+  width:100px;
+}
+
+#index{
+  margin: 20px;
+}
+
+div#index div.container {
+  background-color: orange;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #453C4D;
+  border: solid 1px #453C4D;
+  width: 400px;
+
+}
+
+div#index div.container form{
+  margin: 20px;
+}
+
+div.container input#signup{
+  width: 220px;
+  box-shadow: 5px 5px 5px #B24700;
+  box-shadow: 5px 5px 5px #B24700;
+  border: solid 1px #B24700;
+}
+
+div.container input.btn{
+  box-shadow: 5px 5px 5px #B24700;
+  border: solid 1px #B24700;
+
+}
+
+
+
+
+
+
+
