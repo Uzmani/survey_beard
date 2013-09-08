@@ -7,6 +7,9 @@
       <form action="/surveys/new" method="get">
         <input type="submit" value="Create a new Survey">
       </form>
+      <% surveys_created_by_this_user.each do |survey| %>
+        <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+      <% end %>
 
       
     </div>
@@ -18,7 +21,7 @@
     </div>
     
     <div class="col-sm-4">
-      <h2>Stats on Surveys You've Taken</h2>
+      <h2>Surveys You've Taken</h2>
     </div>
   </div>
 </div>

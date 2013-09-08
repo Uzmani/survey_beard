@@ -12,6 +12,7 @@ end
 get "/users/:user_id" do
   @user = User.find(params[:user_id])
   @survey = Survey.all
+  p surveys_created_by_this_user
   erb :dashboard
 end
 
