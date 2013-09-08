@@ -1,6 +1,6 @@
 get '/surveys/new' do 
   #AR create new survey
-  puts "wrong route executed"
+  @new_survey = true
   erb :new_survey
 end
 
@@ -64,6 +64,10 @@ post '/surveys/:survey_id' do
     p current_user
     current_user.answers << answer
   end
+
+  completed = Completion.new
+  current_user.completions << completed
+  survey.completions << completed
 
   redirect "/surveys/#{survey.id}/results"
 end
