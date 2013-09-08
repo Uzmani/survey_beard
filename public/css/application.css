@@ -113,11 +113,28 @@ div.question input{
   border: solid 1px #B24700;
 }
 
-
-
-
-
 .create-container {
   background-color: orange;
 }
 
+#untaken_surveys input.form-control{
+  width: 150px;
+  box-shadow: 5px 5px 5px #B24700;
+  border: solid 1px #B24700;
+}
+
+#middle{
+  bottom: auto;
+}
+
+/*#survey_field{
+
+  background-color: orange;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #453C4D;
+  border: solid 1px #453C4D;
+  width: 400px;
+  height: auto;
+
+}*/

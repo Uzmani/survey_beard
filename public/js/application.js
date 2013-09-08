@@ -1,6 +1,7 @@
 var choice = 2;
 var question = 1;
 
+
 $(document).ready(function() {
   $('form.add-choice').on('submit', function(e) {
     choice ++;
@@ -39,5 +40,21 @@ $(document).ready(function() {
     console.log($("#hidden-survey-title").val());
 
   });
+
+  $('#untaken_surveys a').on('click', function(e){
+    e.preventDefault();
+      console.log($(this));
+      $('#untaken_surveys').hide();
+      $('#survey_field').show() 
+    $.ajax({
+      type: this.method,
+      url: this.href,
+      data: $(this).serialize()
+    }).done(function(server_data){
+      $('#middle').html(server_data);
+
+
+    }); // .done from end of ajax
+  }); // ends on click function
 
 });

@@ -5,7 +5,7 @@
     <% if logged_in? %>
 
     <p class="navbar-text">Hello <%= current_user.name %>, your beard is looking lovely today!</p>
-    <li><a class="navbar-text" href="/">Dashbeard</a></li>
+    <li><a id="dashbeard" class="navbar-text" href="/">Dashbeard</a></li>
     <span class="nav_buttons">
 
       <% unless @new_survey %>
