@@ -16,6 +16,7 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+gem 'googlecharts'
 
 group :test do
   gem 'faker'
