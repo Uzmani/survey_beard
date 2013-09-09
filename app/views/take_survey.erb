@@ -1,4 +1,4 @@
-<h1>Take the survey</h1>
+<h1> <%= @survey.title %></h1>
 
 <% @survey.questions.each_with_index do |question, index| %>
 
@@ -6,7 +6,7 @@
 
 
 
-<form action='/surveys/<%= @survey.id %>' method="post">
+<form class="take_survey" action='/surveys/<%= @survey.id %>' method="post">
   <% question.choices.each do |choice| %>
   <input type="radio" name="group<%=index%>" value="<%= choice.id %>"> <%= choice.reply %><br>
   <br>
@@ -14,5 +14,5 @@
 
 <% end %>
 <br>
-<input class="form-control" type="submit" value="Submit Answers" >
+<input class="form-control submit" type="submit" value="Submit Answers" >
 </form>

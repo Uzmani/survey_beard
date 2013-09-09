@@ -42,14 +42,14 @@ $(document).ready(function() {
   $('#untaken_surveys a').on('click', function(e){
     e.preventDefault();
       console.log($(this));
-      $('#untaken_surveys').hide();
-      $('#survey_field').show() 
     $.ajax({
       type: this.method,
       url: this.href,
       data: $(this).serialize()
     }).done(function(server_data){
-      $('#middle').html(server_data);
+      $('#take_survey').html(server_data).removeClass('hidden');
+    
+      $('#untaken_surveys').hide();
 
 
     }); // .done from end of ajax

@@ -26,7 +26,7 @@ nav li {
   margin: 10px;
   padding: 10px;
   display: inline-block;
-  background-color: orange;
+  background-color: #FF9400;
   height: 600px;
   border-radius: 10px;
   box-shadow: 10px 10px 5px #453C4D;
@@ -85,7 +85,7 @@ nav input#login{
 }
 
  div.container {
-  background-color: orange;
+  background-color: #FF9400;
   border: none;
   border-radius: 10px;
   box-shadow: 10px 10px 5px #453C4D;
@@ -111,7 +111,7 @@ div.container input.btn{
 }
 
 #results {
-  background-color: orange;
+  background-color: #FF9400;
   border: none;
   border-radius: 10px;
   box-shadow: 10px 10px 5px #453C4D;
@@ -132,7 +132,7 @@ div.question input{
 }
 
 .create-container {
-  background-color: orange;
+  background-color: #FF9400;
 }
 
 
@@ -142,10 +142,28 @@ div.question input{
   border: solid 1px #B24700;
 }
 
-#middle{
-  bottom: auto;
+#take_survey{
+  height: auto;
 }
 
+.take_survey .submit{
+  width: 140px;
+  border-radius: 10px;
+}
+
+.new_survey .new-survey-btn{
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px #B24700;
+  box-shadow: 5px 5px 5px #B24700;
+}
+
+.create-title{
+  margin-top: 25px;
+  background-color: #104BA9;
+  border: solid 1px #230672;
+  box-shadow: 5px 5px 5px #B24700;
+}
 
 #graph {
   border-radius: 12px;
