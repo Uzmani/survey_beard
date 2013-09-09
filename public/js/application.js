@@ -55,4 +55,9 @@ $(document).ready(function() {
     }); // .done from end of ajax
   }); // ends on click function
 
+  $('input.fake-btn').on('click', function(e){
+    e.preventDefault();
+    $('input#done').click();
+  });
+
 });

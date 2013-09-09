@@ -165,6 +165,14 @@ div.question input{
   box-shadow: 5px 5px 5px #B24700;
 }
 
+#done{
+  display: none;
+}
+
+.new_survey input.fake-btn{
+  float: right;
+}
+
 #graph {
   border-radius: 12px;
 }

@@ -6,7 +6,7 @@
       <h2>Surveys You've Created</h2>
       <% if surveys_created_by_this_user%>
         <% surveys_created_by_this_user.each do |survey| %>
-          <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+          <p><a href="/surveys/<%= survey.id %>/edit"><%= survey.title %></a></p>
         <% end %>
       <% end %>
 
