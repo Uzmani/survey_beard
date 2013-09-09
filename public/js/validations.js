@@ -3,7 +3,7 @@ $(function(){
     $('#invalid-errors').empty();
 
     var errors = [];
-    var nameInput = $('#signup-name [name="name"]').val();
+    var nameInput = $('#signup-name[name="name"]').val();
     var emailInput = $('#signup-email[name="email"]').val();
     var passwordInput = $('#signup-password[name="password"]').val();
 
