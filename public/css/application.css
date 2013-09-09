@@ -151,11 +151,21 @@ div.question input{
   border-radius: 10px;
 }
 
-.new_survey .new-survey-btn{
+.done-btn{
   background-color: white;
   border-radius: 5px;
   border: solid 1px #B24700;
   box-shadow: 5px 5px 5px #B24700;
+  float: right;
+}
+
+.edit-btn{
+  background-color: white;
+  margin-top: 17px;
+  border-radius: 5px;
+  border: solid 1px #B24700;
+  box-shadow: 5px 5px 5px #B24700;
+  float: left;
 }
 
 .create-title{
@@ -165,12 +175,15 @@ div.question input{
   box-shadow: 5px 5px 5px #B24700;
 }
 
+
+
 #done{
   display: none;
 }
 
-.new_survey input.fake-btn{
-  float: right;
+.delete{
+  position: static;
+  margin-top: 20px;
 }
 
 #graph {

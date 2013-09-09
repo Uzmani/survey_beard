@@ -1,9 +1,11 @@
 <h1>Beardboard</h1>
 <div class="container">
-  <p>Are you sure you want to delete the following survey: <em>"<%= @survey.title %>"</em>?</p>  
-  <form action="/surveys/<%= @survey.id %>" method="post">  
+  <p>Are you sure you want to delete the following survey: "<%= @survey.title %>"?</p>  
+  
+ <form action="/surveys/<%= @survey.id %>" method="post">  
     <input type="hidden" name="_method" value="delete">  
-    <input type="submit" value="Yes, Delete It!">  
+    <input class="done-btn" type="submit" value="Yes, Delete It!">  
     <a href="/surveys/<%= @survey.id %>">Cancel</a>  
-  </form>  
-</div>
+  </form>
+
+</div> 

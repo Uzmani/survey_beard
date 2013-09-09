@@ -1,0 +1,24 @@
+<h1>Survey Editor</h1>
+<div class="container">
+  <h2><%= @survey.title %></h2>
+  <form  action="/surveys/<%= @survey.id %>/edit" method="post">
+    <% @survey.questions.each do |question| %>
+    <div class="question">
+      <span>Question: <input class="form-control" type="text" name="question[<%= question.id %>][:content]" value="<%= question.content %>"><span><br>
+      </div>
+      <% question.choices.each do |choice| %>
+      <div class="choice">
+        <span>Choice: <input type="text" name="choice[<%= choice.id %>]" value="<%= choice.reply %>"><span><br>
+        </div>
+        <% end %>
+        <% end  %>
+
+        <input type="hidden" name="_method" value="put">  
+        <input class="edit-btn" type="submit" value="Finished Editing">  
+      <!--   <a class="cancel" href="/surveys/<%= @survey.id %>">Cancel</a>   -->
+      </form>
+      <form action="/surveys/<%= @survey.id %>/delete" method="get">
+        <input class="done-btn delete" type="submit" value="Delete Survey">
+        <input type="hidden" name="_method" value="delete">
+      </form>
+    </div>

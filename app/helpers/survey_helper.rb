@@ -68,6 +68,19 @@ helpers do
     end
   end
 
+  def save_changes_to_questions_and_choices
+    params["question"].each do |question_id, question_data|
+      question = Question.find(question_id)
+      question.content = params["question"][question_id][":content"]
+      question.save 
+    end
+    params["choice"].each do |choice_id, choice_data|
+      choice = Choice.find(choice_id)
+      choice.reply = params["choice"][choice_id]
+      choice.save
+    end
+  end
+
 
 end
 

@@ -57,5 +57,13 @@ delete '/surveys/:survey_id' do
 end
 
 get '/surveys/:survey_id/edit' do
+  @survey = Survey.find(params[:survey_id])
   erb :edit_survey
 end
+
+put '/surveys/:survey_id/edit' do
+  p params
+  save_changes_to_questions_and_choices
+  redirect "/"
+end
+
