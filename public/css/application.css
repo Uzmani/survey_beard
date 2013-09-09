@@ -12,6 +12,15 @@ nav li {
   display: inline;
 }
 
+#invalid-errors li {
+  padding: 5px;
+  border-radius: 5px;
+  color: red;
+  width: 300px;
+  margin: 5px auto;
+  background-color: white;
+}
+
 .col-sm-4 {
   width: 27%;
   margin: 10px;
