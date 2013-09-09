@@ -6,17 +6,16 @@
 
   <h2>If You're New to the Site, Please Create an Account</h2>
   <div class="container">
-    <form id="signup" action="/users/new" method="POST">
-      <input id="signup" class="form-control" type="text" name="name" placeholder="name">
+    <form id="signup-form" action="/users/new" method="POST">
+      <input id="signup-name" class="form-control" type="text" name="name" placeholder="name">
       <br>
-        <input id="signup" class="form-control" type="text" name="email" placeholder="email">
+        <input id="signup-email" class="form-control" type="text" name="email" placeholder="email">
       <br>
-        <input id="signup" class="form-control" type="password" name="password" placeholder="password">
+        <input id="signup-password" class="form-control" type="password" name="password" placeholder="password">
       <br>
         <input id="signup-btn" class="btn btn-default" type="submit" value="sign up!">
     </form>
   </div>
-  <div id="invalid-errors">
-
-  </div>
+  <ul id="invalid-errors">
+  </ul>
 </div>
