@@ -1,32 +1,36 @@
 <h1>Beardboard</h1>
 <div class="dash-container">
-<!-- <div class="container"> -->
+  <!-- <div class="container"> -->
   <div class="row">
-    <div class="col-sm-4">
+    <div id="editable" class="col-sm-4">
       <h2>Surveys You've Created</h2>
       <% if surveys_created_by_this_user%>
-        <% surveys_created_by_this_user.each do |survey| %>
-          <p><a href="/surveys/<%= survey.id %>/edit"><%= survey.title %></a></p>
-        <% end %>
+      <% surveys_created_by_this_user.each do |survey| %>
+      <p><a href="/surveys/<%= survey.id %>/edit"><%= survey.title %></a></p>
       <% end %>
-
-      
+      <% end %>
     </div>
+      <div id="editor" class="col-sm-4 hidden">
+      </div>
+
     <div id="untaken_surveys" class="col-sm-4">
       <h2>Surveys You Can Taken</h2>
       <% surveys_not_taken.each do |survey| %>
-        <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
+      <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
       <% end %>
     </div>
 
     <div id="take_survey" class="col-sm-4 hidden">
     </div>
     
-    <div class="col-sm-4">
+    <div id="completed_surveys" class="col-sm-4">
       <h2>Surveys You've Taken</h2>
       <% surveys_taken_by_user.each do |survey| %>
-        <p><a href="/surveys/<%= survey.id %>/results"><%= survey.title %></a></p>
+      <p><a href="/surveys/<%= survey.id %>/results"><%= survey.title %></a></p>
       <% end %>
+    </div>
+
+    <div id="results" class="col-sm-4 hidden">
     </div>
   </div>
 </div>

@@ -60,4 +60,23 @@ $(document).ready(function() {
     $('input#done').click();
   });
 
+
+
+  $('#editable a').on('click', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type: this.method,
+      url: this.href,
+      data: $(this).serialize()
+    }).done(function(server_data){
+      $('#editable').hide();
+      $('#editor').html(server_data).removeClass('hidden');
+    });
+
+
+
+
+  });
+
 });
