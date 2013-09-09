@@ -45,3 +45,17 @@ get '/surveys/new/questions/new' do
   store_incremented_question_number_as_variable
   erb :_add_question , :layout => false
 end
+
+get '/surveys/:survey_id/delete' do
+  @survey = Survey.find(params[:survey_id])
+  erb :delete_survey
+end
+
+delete '/surveys/:survey_id' do
+  Survey.find(params[:survey_id]).destroy
+  redirect '/'
+end
+
+get '/surveys/:survey_id/edit' do
+  erb :edit_survey
+end
