@@ -1,5 +1,5 @@
-<h1>Survey Editor</h1>
-<div class="container">
+<h1>Survey Editor</h1><!-- 
+<div class="container"> -->
   <h2><%= @survey.title %></h2>
   <form  action="/surveys/<%= @survey.id %>/edit" method="post">
     <% @survey.questions.each do |question| %>
@@ -21,4 +21,4 @@
         <input class="done-btn delete" type="submit" value="Delete Survey">
         <input type="hidden" name="_method" value="delete">
       </form>
-    </div>
+<!--     </div> -->

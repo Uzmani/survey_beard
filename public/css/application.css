@@ -151,6 +151,13 @@ div.question input{
   border-radius: 10px;
 }
 
+.new-survey-btn{
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px #B24700;
+  box-shadow: 5px 5px 5px #B24700;
+}
+
 .done-btn{
   background-color: white;
   border-radius: 5px;
@@ -174,8 +181,12 @@ div.question input{
   border: solid 1px #230672;
   box-shadow: 5px 5px 5px #B24700;
 }
-
-
+/*
+.dashbeard{
+  position: absolute;
+  right: 300px;
+  font-size: 125%;
+}*/
 
 #done{
   display: none;
@@ -189,3 +200,28 @@ div.question input{
 #graph {
   border-radius: 12px;
 }
+
+div.row a{
+  color: #520052;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 125%;
+}
+
+div.row h2{
+  margin-bottom: 30px;
+}
+
+div.row{
+  margin-left: 20px;
+}
+
+div#results{
+  margin-top: 100px;
+}
+
+
+#editor{
+  height: auto;
+}
+

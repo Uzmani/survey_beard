@@ -14,6 +14,7 @@ $(function(){
     console.log(errors);
     if (errors.length > 0){
       e.preventDefault();
+      // iterate over the array of error messages and append each one into the errors div
     }
   });  
 });
@@ -22,7 +23,8 @@ $(function(){
 var namePresent = function(name, s) {
   if (name.length < 1) {
     $('#invalid-errors').append("<li class='signup-error'>Must enter your name</li>");
-    s.push("Must have a name");
+    // ^ pull out this append method from each validation and just store the full error message in the array
+    s.push("Must have a name"); // why don't the messages match?
   }
 };
 
