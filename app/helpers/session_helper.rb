@@ -1,3 +1,4 @@
+# move both of these things to controller
 helpers do
 
   def login

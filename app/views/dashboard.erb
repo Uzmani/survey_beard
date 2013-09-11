@@ -14,7 +14,7 @@
       </div>
 
     <div id="untaken_surveys" class="col-sm-4">
-      <h2>Surveys You Can Taken</h2>
+      <h2>Surveys You Can Take</h2>
       <% surveys_not_taken.each do |survey| %>
       <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
       <% end %>

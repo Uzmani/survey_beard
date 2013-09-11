@@ -1,5 +1,5 @@
 get '/surveys/new' do 
-  @new_survey = true
+  @new_survey = true #what is this for?
   erb :new_survey
 end
 
@@ -11,26 +11,26 @@ post '/surveys/new' do
 end
 
 get '/surveys/:survey_id' do
-  @survey = Survey.find(params[:survey_id])
+  @survey = Survey.find(params[:survey_id]) #include questions to reduce DB calls
   erb :take_survey
 end
 
 post '/surveys/:survey_id' do
-  @survey = Survey.find(params[:survey_id])
+  @survey = Survey.find(params[:survey_id]) #why is this an instance variable?
   store_user_answers
   record_completion_of_survey_by_user
   redirect "/surveys/#{@survey.id}/results"
 end
 
 get '/surveys/:survey_id/results' do
-  @survey = Survey.find(params[:survey_id])
+  @survey = Survey.find(params[:survey_id]) #include questions
   extract_graph_data(@survey)
-  @chart = Gchart.pie_3d(:data => @graph_data, 
+  @chart = Gchart.pie_3d(:data => @graph_data, #why is graph_data an instance var?
                          :title => "#{@survey.title}", 
                          :size => '430x200', 
                          :bg => '0000FF00',
                          :theme => :keynote,
-                         :labels => @graph_labels)
+                         :labels => @graph_labels) #why is graph_labels an instance var?
   erb :results
 end
 
@@ -50,6 +50,7 @@ get '/surveys/:survey_id/delete' do
   @survey = Survey.find(params[:survey_id])
   erb :delete_survey
 end
+# ^ nice
 
 delete '/surveys/:survey_id' do
   Survey.find(params[:survey_id]).destroy

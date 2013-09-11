@@ -3,7 +3,7 @@ helpers do
   def surveys_created_by_this_user
     current_user.surveys
   end
-
+  # ^ can be replaced by user.created_surveys alias
   def surveys_taken_by_user
     taken_surveys = []
     current_user.completions.each do |completed|
@@ -11,19 +11,19 @@ helpers do
     end
     taken_surveys
   end
-
+  # ^ can be replaced by user.taken_surveys alias
   def surveys_not_taken
     Survey.all - surveys_taken_by_user
   end
-
+  # ^ I like this, but move into the User model
   def make_new_survey
     @new_survey = Survey.create(title: params[:title])
   end
-
+  # ^ no point in using the instance variable at all here, and actually this can just go in the controller
   def assign_new_survey_to_current_user
     current_user.surveys << @new_survey
   end
-
+  # ^ can go in the controller
   def save_questions_and_choices_to_db_as_part_of_new_survey
     params[:question].each_value do |question_data|
       @question = Question.new(content: question_data[":content"])
@@ -34,7 +34,7 @@ helpers do
       @new_survey.questions << @question
     end
   end
-
+  # ^ either find a way to make this make sense in a model, or put it in the controller
   def store_user_answers
     @survey.questions.each_with_index do |question, index|
       answer = Answer.new
@@ -43,7 +43,7 @@ helpers do
       current_user.answers << answer
     end
   end
-
+  # okay all of this just needs to go into the controller. or the model. move it into the controller first and refactor into the model if you can. and remember that the model can't know about params unless the params are passed along as an argument.
   def record_completion_of_survey_by_user
     completed = Completion.new
     current_user.completions << completed
