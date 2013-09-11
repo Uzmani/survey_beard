@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
-  has_many :surveys #alias this to :created_surveys and specify the new source
+  has_many :created_surveys, 
+              :class_name => 'Survey',
+              :source => :survey
+
   has_many :answers
-  has_many :choices, through: :answers #do we need this? (lla: yes)
-  has_many :completions # this just says the user has many of the joins
-  # a user also has many surveys through :completions. alias this to has_many :taken_surveys
+  has_many :completions
+
+  has_many :taken_surveys, 
+              :through => :completions,
+              :class_name => "Survey",
+              :source => :survey,
+              :foreign_key => "survey_id"
 
   
   validates :email, uniqueness: true
