@@ -29,9 +29,6 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-<<<<<<< Updated upstream
-end
-=======
   def surveys_taken_by_user
     taken_surveys = []
     self.completions.each do |completed|
@@ -45,4 +42,3 @@ end
   end
 
 end
->>>>>>> Stashed changes
