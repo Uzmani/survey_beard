@@ -1,0 +1,86 @@
+Searching 55 files for "record_completion_of_survey_by_user"
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/controllers/survey_controller.rb:
+   31        current_user.answers << answer
+   32      end
+   33:   record_completion_of_survey_by_user
+   34    redirect "/surveys/#{@survey.id}/results"
+   35  end
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/helpers/survey_helper.rb:
+   45    # end
+   46    # okay all of this just needs to go into the controller. or the model. move it into the controller first and refactor into the model if you can. and remember that the model can't know about params unless the params are passed along as an argument.
+   47:   def record_completion_of_survey_by_user
+   48      completed = Completion.new
+   49      current_user.completions << completed
+
+2 matches across 2 files
+
+
+Searching 55 files for "store_incremented_choice_number_as_variable"
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/controllers/survey_controller.rb:
+   51  
+   52  get '/surveys/new/choices/new' do
+   53:   store_incremented_choice_number_as_variable
+   54    store_incremented_question_number_as_variable
+   55    erb :_add_choice , :layout => false
+   ..
+   57  
+   58  get '/surveys/new/questions/new' do
+   59:   store_incremented_choice_number_as_variable
+   60    store_incremented_question_number_as_variable
+   61    erb :_add_question , :layout => false
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/helpers/survey_helper.rb:
+   52    # end
+   53  
+   54:   def store_incremented_choice_number_as_variable
+   55      @choice_value = params[:choice_value]
+   56    end
+
+3 matches across 2 files
+
+
+Searching 55 files for "store_incremented_question_number_as_variable"
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/controllers/survey_controller.rb:
+   52  get '/surveys/new/choices/new' do
+   53    @choice_value = params[:choice_value]
+   54:   store_incremented_question_number_as_variable
+   55    erb :_add_choice , :layout => false
+   56  end
+   ..
+   58  get '/surveys/new/questions/new' do
+   59    @choice_value = params[:choice_value]
+   60:   store_incremented_question_number_as_variable
+   61    erb :_add_question , :layout => false
+   62  end
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/helpers/survey_helper.rb:
+   56    # end
+   57  
+   58:   def store_incremented_question_number_as_variable
+   59      @question_value = params[:question_value]
+   60    end
+
+3 matches across 2 files
+
+
+Searching 55 files for "extract_graph_data"
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/controllers/survey_controller.rb:
+   40  get '/surveys/:survey_id/results' do
+   41    @survey = Survey.find(params[:survey_id]) #include questions
+   42:   extract_graph_data(@survey)
+   43    @chart = Gchart.pie_3d(:data => @graph_data, #why is graph_data an instance var?
+   44                           :title => "#{@survey.title}", 
+
+/Users/apprentice/Desktop/surveygorilla/survey_beard/app/helpers/survey_helper.rb:
+   60    # end
+   61  
+   62:   def extract_graph_data(survey)
+   63      @graph_labels = []
+   64      @graph_data = []
+
+2 matches across 2 files
