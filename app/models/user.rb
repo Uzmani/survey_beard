@@ -29,4 +29,20 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+<<<<<<< Updated upstream
 end
+=======
+  def surveys_taken_by_user
+    taken_surveys = []
+    self.completions.each do |completed|
+      taken_surveys << Survey.find(completed.survey_id)
+    end
+    taken_surveys
+  end
+  # ^ can be replaced by user.taken_surveys alias *****
+  def surveys_not_taken
+    Survey.all - surveys_taken_by_user
+  end
+
+end
+>>>>>>> Stashed changes

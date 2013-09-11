@@ -1,5 +1,5 @@
 get '/' do
- 	if logged_in?	# use -> if current_user
+ 	if current_user	# use -> if current_user
   	redirect "/users/#{current_user.id}"
 	else
 	  erb :index

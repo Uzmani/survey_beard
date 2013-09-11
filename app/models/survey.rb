@@ -15,4 +15,14 @@ class Survey < ActiveRecord::Base
   
   validates :title, uniqueness: true
 
+  def extract_graph_data
+    graph_labels = []
+    graph_data = []
+    self.questions.first.choices.each do |choice|
+      graph_labels << choice.reply
+      graph_data <<  choice.answers.length
+    end
+    return graph_data, graph_labels
+  end
+
 end
