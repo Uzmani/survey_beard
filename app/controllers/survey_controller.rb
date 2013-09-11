@@ -6,7 +6,7 @@ end
 post '/surveys/new' do
   new_survey = Survey.new(title: params[:title])
   if new_survey.save
-    current_user.surveys << new_survey
+    current_user.created_surveys << new_survey
     params[:question].each_value do |question_data|
         question = Question.new(content: question_data[":content"])
         question_data[":reply"].each_value do |reply|

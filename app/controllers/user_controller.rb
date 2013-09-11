@@ -15,7 +15,6 @@ post "/users/new" do
     # reload the signup form with errors dispayed
     # also, client-side form validations will reduce the likelihood of getting to this point
   end
-  erb :index
 end
 
 get "/users/:user_id" do

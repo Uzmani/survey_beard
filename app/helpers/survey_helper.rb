@@ -1,8 +1,5 @@
 helpers do
 
-  def surveys_created_by_this_user
-    current_user.surveys
-  end
   # ^ can be replaced by user.created_surveys alias
   # def surveys_taken_by_user
   #   taken_surveys = []
