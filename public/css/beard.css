@@ -1,0 +1,11 @@
+#beard {
+  width: 650px;
+  display: none;
+  background: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -325px;
+  margin-top: -300px;
+  z-index: 9001;
+}
