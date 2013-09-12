@@ -1,16 +1,20 @@
 class User < ActiveRecord::Base
   has_many :created_surveys, 
-              :class_name => 'Survey',
-              :source => :survey
+              :class_name => 'Survey'
 
   has_many :answers
+
   has_many :completions
 
   has_many :taken_surveys, 
-              :through => :completions,
-              :class_name => "Survey",
-              :source => :survey,
-              :foreign_key => "survey_id"
+           :through => :completions,
+           :source => :survey#,
+           # :foreign_key => "survey_id"
+           # on a "has_many through"
+           # you NEED a source and a foreign key. 
+           # you don't need class name. 
+           # using only class name works on one-to-many
+  
 
   
   validates :email, uniqueness: true
