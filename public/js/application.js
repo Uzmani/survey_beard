@@ -2,12 +2,13 @@ var choice = 2; // why are these variables in this scope?
 var question = 1;
 
 function growBeard(){
-  $('#beard').fadeIn(3000);
-  $('#beard').fadeOut(3000);
+  $('#beard').fadeIn(2000);
+  $('#beard').fadeOut(2000);
 }
 
 $(document).ready(function() {
   growBeard();
+
   $('form.add-choice').on('submit', function(e) {
     choice ++;
     console.log("click heard");
