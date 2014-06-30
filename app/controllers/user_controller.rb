@@ -6,8 +6,15 @@
 # ^ (why is this route commented out? -lla)
 
 post "/users/new" do
-  signup
-  erb :index
+  @user = User.new(email: params[:email], password: params[:password], name: params[:name])
+  if @user.save
+    session[:user_id] = @user.id
+    redirect "/users/#{current_user.id}" 
+  else
+    "Deal with errors..."
+    # reload the signup form with errors dispayed
+    # also, client-side form validations will reduce the likelihood of getting to this point
+  end
 end
 
 get "/users/:user_id" do

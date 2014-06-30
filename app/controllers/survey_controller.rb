@@ -4,10 +4,21 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  make_new_survey
-  assign_new_survey_to_current_user
-  save_questions_and_choices_to_db_as_part_of_new_survey
-  redirect "/users/#{current_user.id}"
+  new_survey = Survey.new(title: params[:title])
+  if new_survey.save
+    current_user.created_surveys << new_survey
+    params[:question].each_value do |question_data|
+        question = Question.new(content: question_data[":content"])
+        question_data[":reply"].each_value do |reply|
+          choice = Choice.new(reply: reply)
+          question.choices << choice #IS THIS WHERE THE CHOICE IS BEING SAVED?
+        end
+        new_survey.questions << question #IS THIS WHERE THE QUESTION IS BEING SAVED?
+      end
+    redirect "/users/#{current_user.id}"
+  else
+    "ERROR MUTHAFUCKA" #this is a stub
+  end
 end
 
 get '/surveys/:survey_id' do
@@ -16,15 +27,23 @@ get '/surveys/:survey_id' do
 end
 
 post '/surveys/:survey_id' do
-  @survey = Survey.find(params[:survey_id]) #why is this an instance variable?
-  store_user_answers
-  record_completion_of_survey_by_user
-  redirect "/surveys/#{@survey.id}/results"
+  survey = Survey.find(params[:survey_id]) #why is this an instance variable?
+  survey.questions.each_with_index do |question, index|
+      answer = Answer.new
+      choice = Choice.find(params["group#{index}"])
+      choice.answers << answer
+      current_user.answers << answer
+    end
+    completed = Completion.new
+    current_user.completions << completed
+    survey = Survey.find(params[:survey_id])
+    survey.completions << completed
+    redirect "/surveys/#{survey.id}/results"
 end
 
 get '/surveys/:survey_id/results' do
   @survey = Survey.find(params[:survey_id]) #include questions
-  extract_graph_data(@survey)
+  @graph_data, @graph_labels = @survey.extract_graph_data
   @chart = Gchart.pie_3d(:data => @graph_data, #why is graph_data an instance var?
                          :title => "#{@survey.title}", 
                          :size => '430x200', 
@@ -35,14 +54,14 @@ get '/surveys/:survey_id/results' do
 end
 
 get '/surveys/new/choices/new' do
-  store_incremented_choice_number_as_variable
-  store_incremented_question_number_as_variable
+  @choice_value = params[:choice_value]
+  @question_value = params[:question_value]
   erb :_add_choice , :layout => false
 end
 
 get '/surveys/new/questions/new' do
-  store_incremented_choice_number_as_variable
-  store_incremented_question_number_as_variable
+  @choice_value = params[:choice_value]
+  @question_value = params[:question_value]
   erb :_add_question , :layout => false
 end
 
@@ -63,8 +82,16 @@ get '/surveys/:survey_id/edit' do
 end
 
 put '/surveys/:survey_id/edit' do
-  p params
-  save_changes_to_questions_and_choices
+  params["question"].each do |question_id, question_data|
+    question = Question.find(question_id)
+    question.content = params["question"][question_id][":content"]      
+    question.save 
+  end
+  params["choice"].each do |choice_id, choice_data|
+    choice = Choice.find(choice_id)
+    choice.reply = params["choice"][choice_id]
+    choice.save
+  end
   redirect "/"
 end
 

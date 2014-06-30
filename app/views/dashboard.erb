@@ -4,8 +4,8 @@
   <div class="row">
     <div id="editable" class="col-sm-4">
       <h2>Surveys You've Created</h2>
-      <% if surveys_created_by_this_user%>
-      <% surveys_created_by_this_user.each do |survey| %>
+      <% if current_user.created_surveys%>
+      <% current_user.created_surveys.each do |survey| %>
       <p><a href="/surveys/<%= survey.id %>/edit"><%= survey.title %></a></p>
       <% end %>
       <% end %>
@@ -15,7 +15,7 @@
 
     <div id="untaken_surveys" class="col-sm-4">
       <h2>Surveys You Can Take</h2>
-      <% surveys_not_taken.each do |survey| %>
+      <% current_user.surveys_not_taken.each do |survey| %>
       <p><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></p>
       <% end %>
     </div>
@@ -25,7 +25,7 @@
     
     <div id="completed_surveys" class="col-sm-4">
       <h2>Surveys You've Taken</h2>
-      <% surveys_taken_by_user.each do |survey| %>
+      <% current_user.surveys_taken_by_user.each do |survey| %>
       <p><a href="/surveys/<%= survey.id %>/results"><%= survey.title %></a></p>
       <% end %>
     </div>
